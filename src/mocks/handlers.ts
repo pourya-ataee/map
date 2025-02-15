@@ -5,7 +5,6 @@ import { generateRandomAddress, generateRandomLatLng } from "@/utils";
 
 export const handlers = [
 	http.get("http://localhost:3000/api/search/get-address", () => {
-		console.log(`Fetching address for coordinates:`);
 		return HttpResponse.json<IGetAddressResponse>(generateRandomAddress());
 	}),
 
