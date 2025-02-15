@@ -63,6 +63,10 @@
 	font-family: "iranyekan", sans-serif;
 }
 
+.Toastify__toast {
+	font-family: "iranyekan", sans-serif !important;
+}
+
 :root {
 	font-family: "iranyekan", sans-serif;
 	--ss-font-default: #616161;

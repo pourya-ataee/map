@@ -1,7 +1,10 @@
-import type { Metadata } from "next";
-import "./globals.css";
 import { ReactNode } from "react";
 import dynamic from "next/dynamic";
+import type { Metadata } from "next";
+import { ToastContainer } from "react-toastify";
+
+import "./globals.css";
+import "react-toastify/dist/ReactToastify.css";
 
 const Header = dynamic(() => import("@/components/layouts/Header"));
 const Footer = dynamic(() => import("@/components/layouts/Footer"));
@@ -23,6 +26,18 @@ export default function RootLayout({
 					{children}
 				</main>
 				<Footer />
+				<ToastContainer
+					rtl
+					stacked
+					draggable
+					closeOnClick
+					pauseOnHover
+					autoClose={5000}
+					newestOnTop={false}
+					position="bottom-left"
+					hideProgressBar={false}
+					pauseOnFocusLoss={false}
+				/>
 			</body>
 		</html>
 	);
