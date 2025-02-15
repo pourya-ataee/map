@@ -58,8 +58,26 @@
 	src: url("/fonts/iranyekan/woff/iranyekanwebthinfanum.woff") format("woff");
 }
 
+* {
+	box-sizing: border-box;
+	font-family: "iranyekan", sans-serif;
+}
+
 :root {
 	font-family: "iranyekan", sans-serif;
-	--background: #ffffff;
-	--foreground: #171717;
+	--ss-font-default: #616161;
+}
+
+.leaflet-control-container .leaflet-top {
+	bottom: 0;
+	top: unset;
+}
+
+.leaflet-top .leaflet-control {
+	margin-bottom: 16px;
+	margin-top: 0 !important;
+}
+
+.leaflet-left .leaflet-control {
+	margin-left: 16px !important;
 }
