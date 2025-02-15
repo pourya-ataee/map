@@ -1,11 +1,14 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useState, useEffect, useRef } from "react";
-import { MapContainer, TileLayer } from "react-leaflet";
 import SearchInput from "@/components/common/SearchInput";
 import DraggableMarker from "@/components/common/DraggableMarker";
 import { snappShopEndpoints } from "@/services/api/SnappShopEndpoints";
 import "leaflet/dist/leaflet.css";
+
+const MapContainer = dynamic(() => import("react-leaflet").then((mod) => mod.MapContainer), { ssr: false });
+const TileLayer = dynamic(() => import("react-leaflet").then((mod) => mod.TileLayer), { ssr: false });
 
 if (process.env.NEXT_PUBLIC_API_MOCKING === "enabled") {
 	import("../mocks/index");
@@ -38,7 +41,7 @@ function Home() {
 
 	return (
 		<div className="relative flex w-full flex-col items-center justify-center">
-			<MapContainer center={position} zoom={10} className="leaflet-container relative z-0 h-[500px] w-[500px] max-w-full max-mobile:w-full">
+			<MapContainer center={position} zoom={10} className="leaflet-container relative z-0 h-[500px] w-[500px] max-w-full">
 				<div className="absolute left-4 right-4 top-4 z-[9999]">
 					<SearchInput setPosition={setPosition} />
 				</div>
